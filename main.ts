@@ -2,7 +2,7 @@
  *
  * Created by: Liya G.
  * Created on: Dec 2023
- * This program does bluetooth
+ * This program does bluetooth.
 */
 
 // variables
@@ -22,17 +22,18 @@ while (true) {
       PingUnit.Centimeters
     )
 
-    if (distanceToObject < 10) {
-      radio.sendString('Too Close')
-    } else {
+    if (distanceToObject <= 10) {
+      basic.showNumber(distanceToObject)
+      pause(1000)
+      radio.sendString('TOO. CLOSE.')
+      pause(500)
+    } 
+
+    if (distanceToObject > 10) {
+      basic.showNumber(distanceToObject)
+      pause(1000)
       radio.sendString('Safe zone')
+      pause(500)
     }
   }
-
-  // recieve from other microbit
-  radio.onReceivedString(function (receivedString) {
-    basic.clearScreen()
-    basic.showString(receivedString)
-    basic.showIcon(IconNames.Happy)
-  })
 }
