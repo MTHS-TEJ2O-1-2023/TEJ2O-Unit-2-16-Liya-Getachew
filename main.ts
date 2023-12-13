@@ -27,7 +27,7 @@ while (true) {
       pause(1000)
       radio.sendString('TOO. CLOSE.')
       pause(500)
-    } 
+    }
 
     if (distanceToObject > 10) {
       basic.showNumber(distanceToObject)
